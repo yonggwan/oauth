@@ -15,3 +15,25 @@ module.exports.mimeTypes = {
     '.otf': 'application/font-otf',
     '.wasm': 'application/wasm'
 };
+
+module.exports.URLHelper = class URLHelper extends URL {
+    constructor(...props) {
+        super(...props);
+    }
+
+    /**
+     * @param {object} option { omitEmpty: boolean }
+     * @return {object}
+     */
+    parseSearchParam = (option) => {
+        if (!this.search) return {};
+        return this.search
+            .slice(1)
+            .split('&')
+            .reduce((prev, curr) => {
+                const [k, v] = curr.split('=');
+                if (option.omitEmpty && !v) return prev;
+                return ({ ...prev, [k]: v })
+            }, {});
+    }
+}
