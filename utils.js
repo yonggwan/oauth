@@ -22,10 +22,19 @@ module.exports.URLHelper = class URLHelper extends URL {
     }
 
     /**
+     * @return {string}
+     */
+    static paramsToQueryString = (params) => {
+        if (!params) return '';
+        // return params
+        return 'TODO';
+    }
+
+    /**
      * @param {object} option { omitEmpty: boolean }
      * @return {object}
      */
-    parseSearchParam = (option) => {
+    queryStringToParams = (option) => {
         if (!this.search) return {};
         return this.search
             .slice(1)
