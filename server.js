@@ -19,4 +19,4 @@ http.createServer(function (request, response) {
     return viewRouter(request, response);
 
 }).listen(port);
-console.log(`Server running at http://127.0.0.1:${port}/`);
+console.log(`Server running at ${process.env.APP_HOST}:${port}`);

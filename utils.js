@@ -1,3 +1,5 @@
+const qs = require('qs');
+
 module.exports.mimeTypes = {
     '.html': 'text/html',
     '.js': 'text/javascript',
@@ -27,7 +29,7 @@ module.exports.URLHelper = class URLHelper extends URL {
     static paramsToQueryString = (params) => {
         if (!params) return '';
         // return params
-        return 'TODO';
+        return qs.stringify(params);
     }
 
     /**
