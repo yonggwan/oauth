@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const Handlebars = require("handlebars");
-const { resolve } = require('path');
 
 module.exports = async function render (filePath, data) {
     return new Promise(resolve => {
